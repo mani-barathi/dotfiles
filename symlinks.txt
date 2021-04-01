@@ -1,0 +1,4 @@
+mklink "C:\Users\manib\.gitconfig" "C:\Users\manib\.dotfiles\.gitconfig"
+mklink "C:\Users\manib\.gvimrc" "C:\Users\manib\.dotfiles\.gvimrc"
+mklink "C:\Users\manib\.vimrc" "C:\Users\manib\.dotfiles\.vimrc"
+mklink "C:\Users\manib\_vimrc" "C:\Users\manib\.dotfiles\_vimrc"
