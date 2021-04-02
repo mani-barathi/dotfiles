@@ -1,5 +1,5 @@
 # Dotfiles
-**_I'm Using Windows as Operating System_**
+**I'm using Windows as Operating System and PowerShell as my default Command Line**
 
 ### Software
 - **[Git](https://git-scm.com/downloads)**
