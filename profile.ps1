@@ -14,11 +14,16 @@ $principal = New-Object Security.Principal.WindowsPrincipal $identity
 $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 
 # shortcuts for switching directories (Modify if Required)
-function cdd  { cd C:\Users\manib\Desktop }
-function cdr  { cd C:\Users\manib\Desktop\random }
-function cddoc  { cd C:\Users\manib\Documents}
-function cddownloads { cd C:\Users\manib\Downloads}
+function cdhome  { cd $HOME }
+function cdd  { cd $HOME\Desktop }
+function cdr  { cd $HOME\Desktop\random }
+function cddoc  { cd $HOME\Documents}
+function cddownloads { cd $HOME\Downloads}
 function cdp  { cd H:\Projects}
+
+# Util-scripts 
+function downloads_mover() { python $HOME\.dotfiles\util-scripts\downloads_mover.py $HOME }
+
 
 # touch command to create any file from the powershell
 function touch{
