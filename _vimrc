@@ -1,6 +1,5 @@
 " Author   : Manibarathi
-" Website  : https://manibarathi.web.app/
-" GitHub   : https://github.com/mani-barathi/
+" GitHub   : https://github.com/mani-barathi/dotfiles
 
 imap jk <Esc>			
 inoremap <C-BS> <C-\><C-o>db 
@@ -12,14 +11,15 @@ set nu
 set hidden
 set laststatus=2
 set backspace=2
-set noswapfile          	" No swap
+set noswapfile          	  " No swap
 set t_Co=256                " Set if term supports 256 colors.
 " set clipboard=unnamedplus   Copy/paste between vim and other programs.
 
+set belloff=all				      " Removes annoying sound
 
 " Tabs, Spaces ------------------------------
 set autoindent							
-set smarttab                " Be smart using tabs :)
+set smarttab                " Be smart using tabs
 set shiftwidth=4            " One tab == four spaces.
 set tabstop=4               " One tab == four spaces.
 
@@ -71,5 +71,3 @@ map <Leader>tk <C-w>t<C-w>K
 
 " Removes pipes | that act as seperators on splits
 set fillchars+=vert:\ 
-
-
