@@ -23,7 +23,7 @@ function cdp  { cd H:\Projects}
 
 # Util-scripts 
 function downloads_mover() { python $HOME\.dotfiles\util-scripts\downloads_mover.py $HOME }
-
+function note($param) { python $HOME\.dotfiles\util-scripts\note.py $HOME $param }
 
 # touch command to create any file from the powershell
 function touch{
