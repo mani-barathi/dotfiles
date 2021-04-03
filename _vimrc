@@ -1,5 +1,5 @@
 " Author   : Manibarathi
-" GitHub   : https://github.com/mani-barathi/dotfiles
+" Link     : https://github.com/mani-barathi/dotfiles
 
 imap jk <Esc>			
 inoremap <C-BS> <C-\><C-o>db 

@@ -1,7 +1,7 @@
 # Author      : Manibarathi
-# GitHub      : https://github.com/mani-barathi/dotfiles
+# Link        : https://github.com/mani-barathi/dotfiles
 # Description : Script will operates as a simple note taking system, which can be used directly from command line
-#               This script is executed from note function insider profile.ps1
+#               This script is executed from note function inside profile.ps1
 
 import sys,os
 

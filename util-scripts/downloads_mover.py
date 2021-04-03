@@ -1,7 +1,7 @@
 # Author      : Manibarathi
-# GitHub	  : https://github.com/mani-barathi/dotfiles
+# Link  	  : https://github.com/mani-barathi/dotfiles
 # Description : Script will move all the files from the downloads directory to specified folder based on the extension
-#               This script is executed from downloads_mover function insider profile.ps1
+#               This script is executed from downloads_mover function inside profile.ps1
 
 import os,shutil,sys
 from concurrent.futures import ThreadPoolExecutor

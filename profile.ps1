@@ -1,5 +1,5 @@
 # Author      : Manibarathi
-# GitHub	  : https://github.com/mani-barathi/dotfiles
+# Link  	  : https://github.com/mani-barathi/dotfiles
 # Description : profile file for my Customized Powershell Prompt
 #
 # This file should be stored in $PROFILE.CurrentUserAllHosts, if it doesn't exists already create using below command
