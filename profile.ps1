@@ -16,7 +16,7 @@ $isAdmin = $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administ
 # shortcuts for switching directories (Modify if Required)
 function cdhome  { cd $HOME }
 function cdd  { cd $HOME\Desktop }
-function cdr  { cd $HOME\Desktop\random }
+function cdr  { cd $HOME\Desktop\den }
 function cddoc  { cd $HOME\Documents}
 function cddownloads { cd $HOME\Downloads}
 function cdp  { cd H:\Projects}
@@ -38,15 +38,3 @@ function touch{
 	}
 }
 
-
-function Prompt {
-	if($IsAdmin){
-		write-host "Admin" -NoNewline -ForegroundColor Cyan -BackgroundColor DarkRed 
-	}
-	else{
-		write-host "$env:UserName" -NoNewline -ForegroundColor Cyan -BackgroundColor DarkRed 
-	}
-	write-host "@ " -NoNewline -ForegroundColor White -BackgroundColor DarkRed 
-	write-host "$pwd $" -NoNewline -ForegroundColor White -BackgroundColor DarkRed 
-	return " "
-}
