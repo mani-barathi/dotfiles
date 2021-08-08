@@ -4,7 +4,6 @@
 set nocompatible
 
 inoremap jk <Esc>
-imap <C-BS> <C-W>
 
 syntax enable
 set nu
@@ -12,6 +11,7 @@ set laststatus=2
 set noerrorbells			  " Removes annoying sound
 set belloff=all			    " Removes annoying sound
 set hidden
+set backspace=indent,eol,start
 
 set tabstop=2           " number of visual spaces per TAB
 set softtabstop=2       " number of spaces in tab when editing
@@ -19,12 +19,10 @@ set shiftwidth=2
 set autoindent
 set smartindent
 set expandtab           " tabs are spaces
-set backspace=indent,eol,start
 
-set cursorline          " highlight current line
 set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
-set showmatch           " highlight matching [{()}]
+" set showmatch           " highlight matching [{()}]
 set incsearch           " search as characters are entered
 set fillchars+=vert:\ 
 set foldenable          " enable folding
@@ -34,7 +32,6 @@ set noswapfile
 set nowrap
 set title
 set scrolloff=1
-set omnifunc=syntaxcomplete#Complete
 set path+=**                                                                    
 set wildignore+=**/node_modules/** 
 
@@ -48,7 +45,6 @@ filetype plugin on
 
 let g:netrw_banner = 0
 
-map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
 set fillchars+=vert:\|
 set splitbelow splitright
 
@@ -68,6 +64,11 @@ noremap <silent> <C-Down> :resize -3<CR>
 map <leader>th <c-w>t<c-w>h
 map <Leader>tk <C-w>t<C-w>K
 
+inoremap <C-BS> <C-W>
+nnoremap - $
+
+map <F9> :w<CR>:!python %<CR>
+map <F10> :w<CR>:!node %<CR>
 
 if has("gui_running")
         if has("gui_gtk2")
@@ -81,13 +82,13 @@ if has("gui_running")
 endif
 
 call plug#begin('~/vimfiles/plugged')
-Plug 'gruvbox-community/gruvbox'
+" Plug 'gruvbox-community/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'kien/ctrlp.vim'
 call plug#end()
 
 colorscheme onedark
-" set bg=dark
+
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|__pycache__\|venv\|env\'
 let g:ctrlp_max_files=0 
 
