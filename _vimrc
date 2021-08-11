@@ -27,6 +27,7 @@ set incsearch           " search as characters are entered
 set fillchars+=vert:\ 
 set foldenable          " enable folding
 set signcolumn=yes
+set termguicolors
 
 set noswapfile
 set nowrap
@@ -34,9 +35,29 @@ set title
 set scrolloff=1
 set path+=**                                                                    
 set wildignore+=**/node_modules/** 
+set updatetime=100
+
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=20
 
 filetype indent on      " load filetype-specific indent files
 filetype plugin on
+
+au BufNewFile, BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+au BufNewFile, BufRead *.js, *.html, *.css
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2
 
 :set guioptions-=m      "remove menu bar
 :set guioptions-=T      "remove toolbar
@@ -53,6 +74,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+nnoremap <c-s> :w<cr>
 noremap <leader>b :Vex<CR>
 noremap <leader>B :tabedit<Bar>:Ex<CR>
 
@@ -67,6 +89,7 @@ map <Leader>tk <C-w>t<C-w>K
 inoremap <C-BS> <C-W>
 nnoremap - $
 
+" execute code
 map <F9> :w<CR>:!python %<CR>
 map <F10> :w<CR>:!node %<CR>
 
@@ -77,18 +100,33 @@ if has("gui_running")
                 set guifont=Menlo\ Regular:h14
         elseif has("gui_win32")
                 set guifont=Consolas:h11:cANSI
-                " set guifont=Consolas:h13:cANSI
+                "set guifont=Consolas:h13:cANSI
         endif
 endif
 
 call plug#begin('~/vimfiles/plugged')
-" Plug 'gruvbox-community/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'kien/ctrlp.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 colorscheme onedark
 
+" for prettier to work 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git|__pycache__\|venv\|env\'
 let g:ctrlp_max_files=0 
 
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
