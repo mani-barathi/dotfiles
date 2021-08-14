@@ -7,6 +7,7 @@ inoremap jk <Esc>
 
 syntax enable
 set nu
+set relativenumber
 set laststatus=2
 set noerrorbells			  " Removes annoying sound
 set belloff=all			    " Removes annoying sound
@@ -37,7 +38,7 @@ set path+=**
 set wildignore+=**/node_modules/** 
 set updatetime=100
 
-set foldmethod=indent   
+set foldmethod=manual
 set foldnestmax=10
 set nofoldenable
 set foldlevel=20
@@ -105,6 +106,7 @@ if has("gui_running")
 endif
 
 call plug#begin('~/vimfiles/plugged')
+Plug 'gruvbox-community/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -114,7 +116,7 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
-colorscheme onedark
+colorscheme gruvbox
 
 " for prettier to work 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -126,7 +128,7 @@ let g:ctrlp_max_files=0
 inoremap <silent><expr> <c-space> coc#refresh()
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
