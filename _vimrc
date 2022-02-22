@@ -84,6 +84,11 @@ noremap <silent> <C-Right> :vertical resize -3<CR>
 noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
 
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
 map <leader>th <c-w>t<c-w>h
 map <Leader>tk <C-w>t<C-w>K
 
@@ -93,6 +98,10 @@ nnoremap - $
 " execute code
 map <F9> :w<CR>:!python %<CR>
 map <F10> :w<CR>:!node %<CR>
+nnoremap <F7> :w<CR>:!gcc -o  %:r.exe % <Enter>
+nnoremap <F8> :w<CR>:!g++ -o  %:r.exe % <Enter>
+nnoremap <C-x> :w<CR>:!%:r.exe<Enter>
+nnoremap <F3> :w<CR>:!%:r.exe<Enter>
 
 if has("gui_running")
         if has("gui_gtk2")
@@ -101,7 +110,7 @@ if has("gui_running")
                 set guifont=Menlo\ Regular:h14
         elseif has("gui_win32")
                 set guifont=Consolas:h11:cANSI
-                "set guifont=Consolas:h13:cANSI
+                "set guifont=Consolas:h14:cANSI
         endif
 endif
 
@@ -114,9 +123,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
-colorscheme gruvbox
+colorscheme dracula
 
 " for prettier to work 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
